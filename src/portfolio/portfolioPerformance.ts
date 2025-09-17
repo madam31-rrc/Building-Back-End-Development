@@ -2,8 +2,8 @@ export interface PortfolioPerformance {
   initialInvestment: number;
   currentValue: number;
   profitOrLoss: number;
-  percentageChange: number;   // rounded to 2 decimals when valid, else NaN
-  performanceSummary: string; // short label
+  percentageChange: number;
+  performanceSummary: string;
 }
 
 export function calculatePortfolioPerformance(
@@ -16,11 +16,9 @@ export function calculatePortfolioPerformance(
   if (initialInvestment > 0) {
     percentageChange = (profitOrLoss / initialInvestment) * 100;
   } else {
-    // avoid dividing by 0 or a negative baseline
     percentageChange = Number.NaN;
   }
 
-  // round to 2 decimals if it’s a real number
   if (Number.isFinite(percentageChange)) {
     percentageChange = Math.round(percentageChange * 100) / 100;
   }
