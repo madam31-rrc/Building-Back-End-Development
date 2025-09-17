@@ -23,7 +23,6 @@ describe('findLargestHolding', () => {
       { name: 'Bills', value: 5_000 },
     ];
     const result = findLargestHolding(assets);
-    // Ensure it returns the actual first object (not just same values)
     expect(result).toBe(assets[0]);
   });
 });
